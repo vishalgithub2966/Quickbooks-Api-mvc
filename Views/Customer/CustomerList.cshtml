@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Intuit.Ipp.Data.Customer>
+
+@{
+}
+<div>
+    <a href="@Url.Action("Index", "Customer")" class="btn btn-success">Customer Home</a>
+
+    <a href="@Url.Action("Customerlist", "Customer")" class="btn btn-success">Refresh Customers</a>
+
+</div>
+<div>
+    <h2>Customer List</h2>
+</div>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Given Name</th>
+                <th>Id</th>
+                <th>Display Name</th>
+                <th>Currency Name</th>
+                @* <th>Created Time</th> *@
+                <th>Last Updated Time</th>
+                <th>Active</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.GivenName</td>
+                    <td>@customer.Id</td>
+                    <td>@customer.DisplayName</td>
+                    <td>@customer.CurrencyRef.name</td>
+@*                     <td>@customer.MetaData.CreateTime</td>
+ *@                    <td>@customer.MetaData.LastUpdatedTime</td>
+                    <td>@customer.Active</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
